@@ -21,6 +21,7 @@ db/*.sqlite3
 
 # various artifacts
 **.war
+.powrc
 *.rbc
 *.sassc
 .rspec
