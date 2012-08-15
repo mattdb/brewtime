@@ -49,3 +49,5 @@ gem "database_cleaner", ">= 0.8.0", :group => :test
 gem "mongoid-rspec", ">= 1.4.6", :group => :test
 gem "factory_girl_rails", ">= 4.0.0", :group => [:development, :test]
 gem "zurb-foundation", ">= 3.0.8", :group => :assets
+gem "simple_form"
+gem "therubyracer", :group => :assets, :platform => :ruby
