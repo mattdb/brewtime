@@ -20,33 +20,26 @@ require 'spec_helper'
 
 describe BrewsController do
 
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # BrewsController. Be sure to keep this updated too.
-  def valid_session
-    {}
-  end
-
   describe "GET index" do
     it "assigns all brews as @brews" do
       brew = FactoryGirl.create(:brew)
-      get :index, {}, valid_session
+      get :index, {}
       assigns(:brews).should eq([brew])
     end
+    
   end
 
   describe "GET show" do
     it "assigns the requested brew as @brew" do
       brew = FactoryGirl.create(:brew)
-      get :show, {:id => brew.to_param}, valid_session
+      get :show, {:id => brew.to_param}
       assigns(:brew).should eq(brew)
     end
   end
 
   describe "GET new" do
     it "assigns a new brew as @brew" do
-      get :new, {}, valid_session
+      get :new, {}
       assigns(:brew).should be_a_new(Brew)
     end
   end
@@ -54,7 +47,7 @@ describe BrewsController do
   describe "GET edit" do
     it "assigns the requested brew as @brew" do
       brew = FactoryGirl.create(:brew)
-      get :edit, {:id => brew.to_param}, valid_session
+      get :edit, {:id => brew.to_param}
       assigns(:brew).should eq(brew)
     end
   end
@@ -63,18 +56,18 @@ describe BrewsController do
     describe "with valid params" do
       it "creates a new Brew" do
         expect {
-          post :create, {:brew => FactoryGirl.attributes_for(:brew)}, valid_session
+          post :create, {:brew => FactoryGirl.attributes_for(:brew)}
         }.to change(Brew, :count).by(1)
       end
 
       it "assigns a newly created brew as @brew" do
-        post :create, {:brew => FactoryGirl.attributes_for(:brew)}, valid_session
+        post :create, {:brew => FactoryGirl.attributes_for(:brew)}
         assigns(:brew).should be_a(Brew)
         assigns(:brew).should be_persisted
       end
 
       it "redirects to the created brew" do
-        post :create, {:brew => FactoryGirl.attributes_for(:brew)}, valid_session
+        post :create, {:brew => FactoryGirl.attributes_for(:brew)}
         response.should redirect_to(Brew.last)
       end
     end
@@ -83,14 +76,14 @@ describe BrewsController do
       it "assigns a newly created but unsaved brew as @brew" do
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
-        post :create, {:brew => {}}, valid_session
+        post :create, {:brew => {}}
         assigns(:brew).should be_a_new(Brew)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
-        post :create, {:brew => {}}, valid_session
+        post :create, {:brew => {}}
         response.should render_template("new")
       end
     end
@@ -105,18 +98,18 @@ describe BrewsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Brew.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => brew.to_param, :brew => {'these' => 'params'}}, valid_session
+        put :update, {:id => brew.to_param, :brew => {'these' => 'params'}}
       end
 
       it "assigns the requested brew as @brew" do
         brew = FactoryGirl.create(:brew)
-        put :update, {:id => brew.to_param, :brew => FactoryGirl.attributes_for(:brew)}, valid_session
+        put :update, {:id => brew.to_param, :brew => FactoryGirl.attributes_for(:brew)}
         assigns(:brew).should eq(brew)
       end
 
       it "redirects to the brew" do
         brew = FactoryGirl.create(:brew)
-        put :update, {:id => brew.to_param, :brew => FactoryGirl.attributes_for(:brew)}, valid_session
+        put :update, {:id => brew.to_param, :brew => FactoryGirl.attributes_for(:brew)}
         response.should redirect_to(brew)
       end
     end
@@ -126,7 +119,7 @@ describe BrewsController do
         brew = FactoryGirl.create(:brew)
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
-        put :update, {:id => brew.to_param, :brew => {}}, valid_session
+        put :update, {:id => brew.to_param, :brew => {}}
         assigns(:brew).should eq(brew)
       end
 
@@ -134,7 +127,7 @@ describe BrewsController do
         brew = FactoryGirl.create(:brew)
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
-        put :update, {:id => brew.to_param, :brew => {}}, valid_session
+        put :update, {:id => brew.to_param, :brew => {}}
         response.should render_template("edit")
       end
     end
@@ -144,13 +137,13 @@ describe BrewsController do
     it "destroys the requested brew" do
       brew = FactoryGirl.create(:brew)
       expect {
-        delete :destroy, {:id => brew.to_param}, valid_session
+        delete :destroy, {:id => brew.to_param}
       }.to change(Brew, :count).by(-1)
     end
 
     it "redirects to the brews list" do
       brew = FactoryGirl.create(:brew)
-      delete :destroy, {:id => brew.to_param}, valid_session
+      delete :destroy, {:id => brew.to_param}
       response.should redirect_to(brews_url)
     end
   end

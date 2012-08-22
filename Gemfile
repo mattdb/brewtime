@@ -2,7 +2,7 @@ require 'rbconfig'
 HOST_OS = RbConfig::CONFIG['host_os']
 source 'https://rubygems.org'
 gem 'rails', '3.2.8'
-gem "mongoid", "~> 3.0.3"
+gem "mongoid", "~> 3.0.4"
 
 group :assets do
   gem 'sass', '3.2.1'
@@ -49,12 +49,17 @@ group :development do
   gem "guard-rspec", "~> 1.2.1"
 end
 
-group :test do
+group :development, :test do
   gem "rspec-rails", "~> 2.11.0"
-  gem "capybara", "~> 1.1.2"
-  gem "database_cleaner", "~> 0.8.0"
-  gem "mongoid-rspec", "~> 1.5.1"
   gem "factory_girl_rails", "~> 4.0.0"
+  gem "mongoid-rspec", "~> 1.5.1"
+  gem "capybara", "~> 1.1.2"
+  # NOTE: if you have OS X Mountain Lion (10.8), you'll need to jump through some hoops to get capybara-webkit running due to X11 no longer being installed by default
+  # see https://github.com/thoughtbot/capybara-webkit/issues/363 for starters
+  gem "capybara-webkit", "~> 0.12.1"
+  gem "launchy", "~> 2.1.2"
+  gem "database_cleaner", "~> 0.8.0"
+  gem "shoulda-matchers", "~> 1.2.0"
 end
 
 # servers
