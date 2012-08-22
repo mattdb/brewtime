@@ -6,5 +6,5 @@ class Step
   field :max_length, type: Integer
   field :actual_length, type: Integer
   
-  embedded_in :beer
+  embedded_in :brew
 end
