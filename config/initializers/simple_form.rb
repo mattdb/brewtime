@@ -40,9 +40,16 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     ## Inputs
-    b.use :label_input
+    b.use :label
+    b.use :input
     b.use :hint,  :wrap_with => { :tag => :span, :class => :hint }
     b.use :error, :wrap_with => { :tag => :span, :class => :error }
+  end
+  
+  config.wrappers :brewtime, :class => :brewinput, :error_class => :error_field do |b|
+    b.use :label
+    b.use :input
+    b.use :error
   end
 
   # The default wrapper to be used by the FormBuilder.
