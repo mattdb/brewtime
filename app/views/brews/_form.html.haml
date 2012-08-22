@@ -1,0 +1,13 @@
+= simple_form_for(@brew, :wrapper => :brewtime) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.label :name
+    = f.text_field :name, :label => 'Name'
+    
+    = f.label :brewed
+    = f.text_field :brewed, :as => :datetime, :class => :datepicker
+    = f.error :brewed, :class => :error
+
+  .form-actions
+    = f.button :submit

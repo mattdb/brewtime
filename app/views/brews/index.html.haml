@@ -1,0 +1,17 @@
+%h1 Listing brews
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @brews.each do |brew|
+    %tr
+      %td= link_to 'Show', brew
+      %td= link_to 'Edit', edit_brew_path(brew)
+      %td= link_to 'Destroy', brew, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Brew', new_brew_path
