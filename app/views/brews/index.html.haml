@@ -1,3 +1,13 @@
+- content_for :head do
+  = stylesheet_link_tag 'gantt'
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+  <link rel="stylesheet" href="http://taitems.github.com/UX-Lab/core/css/prettify.css" />
+  = javascript_include_tag 'jquery.fn.gantt'
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+  <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>
+  <script src="http://taitems.github.com/UX-Lab/core/js/prettify.js"></script>
+	
+  
 %h1 Listing brews
 
 %table
@@ -15,3 +25,9 @@
 %br
 
 = link_to 'New Brew', new_brew_path
+
+%br
+
+.gantt
+
+= render :partial => 'test_data'
