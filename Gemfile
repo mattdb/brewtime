@@ -47,6 +47,7 @@ group :development do
   gem "guard-rails", "~> 0.1.0"
   gem "guard-livereload", "~> 1.0.0"
   gem "guard-rspec", "~> 1.2.1"
+  gem "guard-jasmine"
 end
 
 group :development, :test do
@@ -60,6 +61,7 @@ group :development, :test do
   gem "launchy", "~> 2.1.2"
   gem "database_cleaner", "~> 0.8.0"
   gem "shoulda-matchers", "~> 1.2.0"
+  gem "jasminerice"
 end
 
 # servers
