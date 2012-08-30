@@ -1,6 +1,8 @@
 h1. Brewtime
 
-This is a sample application, currently under construction. For an overview of the project and some pointers to some of the more interesting code bits, "take a look at the blog series documenting the development of this app":http://mattdb.com/blog/categories/brewtime/
+This is a sample application, currently under construction. For an overview of the project and some pointers to some of the more interesting code bits, "take a look at the blog series documenting the development of this app.":http://mattdb.com/blog/categories/brewtime/
+
+== <hr /> ==
 
 Recipes:
 ["auth", "extras", "frontend", "gems", "git", "init", "models", "readme", "setup", "testing"]
