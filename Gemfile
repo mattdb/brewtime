@@ -17,6 +17,8 @@ end
 gem 'jquery-rails'
 gem "haml", "~> 3.1.7"
 gem "simple_form"
+gem "rabl"
+gem "json_spec"
 
 gem "validates_timeliness"
 

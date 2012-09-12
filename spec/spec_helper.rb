@@ -40,6 +40,8 @@ Spork.prefork do
     
     # mix in :build method & friends from FactoryGirl
     config.include FactoryGirl::Syntax::Methods
+    # mix in json helpers from json_spec
+    config.include JsonSpec::Helpers
 
     require 'database_cleaner'
     config.before(:suite) do

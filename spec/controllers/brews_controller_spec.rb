@@ -22,56 +22,55 @@ describe BrewsController do
 
   describe "GET index" do
     it "assigns all brews as @brews" do
-      brew = FactoryGirl.create(:brew)
+      brew = create(:brew_with_steps)
       get :index, {}
       assigns(:brews).should eq([brew])
     end
-    
   end
 
   describe "GET show" do
     it "assigns the requested brew as @brew" do
-      brew = FactoryGirl.create(:brew)
+      brew = create(:brew_with_steps)
       get :show, {:id => brew.to_param}
       assigns(:brew).should eq(brew)
     end
   end
-
+  
   describe "GET new" do
     it "assigns a new brew as @brew" do
       get :new, {}
       assigns(:brew).should be_a_new(Brew)
     end
   end
-
+  
   describe "GET edit" do
     it "assigns the requested brew as @brew" do
-      brew = FactoryGirl.create(:brew)
+      brew = create(:brew_with_steps)
       get :edit, {:id => brew.to_param}
       assigns(:brew).should eq(brew)
     end
   end
-
+  
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Brew" do
         expect {
-          post :create, {:brew => FactoryGirl.attributes_for(:brew)}
+          post :create, {:brew => attributes_for(:brew)}
         }.to change(Brew, :count).by(1)
       end
-
+  
       it "assigns a newly created brew as @brew" do
-        post :create, {:brew => FactoryGirl.attributes_for(:brew)}
+        post :create, {:brew => attributes_for(:brew)}
         assigns(:brew).should be_a(Brew)
         assigns(:brew).should be_persisted
       end
-
+  
       it "redirects to the created brew" do
-        post :create, {:brew => FactoryGirl.attributes_for(:brew)}
+        post :create, {:brew => attributes_for(:brew)}
         response.should redirect_to(Brew.last)
       end
     end
-
+  
     describe "with invalid params" do
       it "assigns a newly created but unsaved brew as @brew" do
         # Trigger the behavior that occurs when invalid params are submitted
@@ -79,7 +78,7 @@ describe BrewsController do
         post :create, {:brew => {}}
         assigns(:brew).should be_a_new(Brew)
       end
-
+  
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
@@ -88,11 +87,11 @@ describe BrewsController do
       end
     end
   end
-
+  
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested brew" do
-        brew = FactoryGirl.create(:brew)
+        brew = create(:brew_with_steps)
         # Assuming there are no other brews in the database, this
         # specifies that the Brew created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -100,31 +99,31 @@ describe BrewsController do
         Brew.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
         put :update, {:id => brew.to_param, :brew => {'these' => 'params'}}
       end
-
+  
       it "assigns the requested brew as @brew" do
-        brew = FactoryGirl.create(:brew)
-        put :update, {:id => brew.to_param, :brew => FactoryGirl.attributes_for(:brew)}
+        brew = create(:brew_with_steps)
+        put :update, {:id => brew.to_param, :brew => attributes_for(:brew)}
         assigns(:brew).should eq(brew)
       end
-
+  
       it "redirects to the brew" do
-        brew = FactoryGirl.create(:brew)
-        put :update, {:id => brew.to_param, :brew => FactoryGirl.attributes_for(:brew)}
+        brew = create(:brew_with_steps)
+        put :update, {:id => brew.to_param, :brew => attributes_for(:brew)}
         response.should redirect_to(brew)
       end
     end
-
+  
     describe "with invalid params" do
       it "assigns the brew as @brew" do
-        brew = FactoryGirl.create(:brew)
+        brew = create(:brew_with_steps)
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
         put :update, {:id => brew.to_param, :brew => {}}
         assigns(:brew).should eq(brew)
       end
-
+  
       it "re-renders the 'edit' template" do
-        brew = FactoryGirl.create(:brew)
+        brew = create(:brew_with_steps)
         # Trigger the behavior that occurs when invalid params are submitted
         Brew.any_instance.stub(:save).and_return(false)
         put :update, {:id => brew.to_param, :brew => {}}
@@ -132,17 +131,17 @@ describe BrewsController do
       end
     end
   end
-
+  
   describe "DELETE destroy" do
     it "destroys the requested brew" do
-      brew = FactoryGirl.create(:brew)
+      brew = create(:brew_with_steps)
       expect {
         delete :destroy, {:id => brew.to_param}
       }.to change(Brew, :count).by(-1)
     end
-
+  
     it "redirects to the brews list" do
-      brew = FactoryGirl.create(:brew)
+      brew = create(:brew_with_steps)
       delete :destroy, {:id => brew.to_param}
       response.should redirect_to(brews_url)
     end

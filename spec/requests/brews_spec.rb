@@ -8,11 +8,6 @@ describe "Brews" do
       response.status.should be(200)
     end
     
-    # it "shows a javascript alert", :js => true do
-    #   visit brews_path
-    #   click_link "hello"
-    #   page.should have_content("Hai!")
-    # end
     
   end
 end

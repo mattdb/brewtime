@@ -1,13 +1,10 @@
 class BrewsController < ApplicationController
+  respond_to :html, :json
+  
   # GET /brews
   # GET /brews.json
   def index
     @brews = Brew.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @brews }
-    end
   end
 
   # GET /brews/1
