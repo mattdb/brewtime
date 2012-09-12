@@ -2,37 +2,3 @@ h1. Brewtime
 
 This is a sample application, currently under construction. For an overview of the project and some pointers to some of the more interesting code bits, "take a look at the blog series documenting the development of this app.":http://mattdb.com/blog/categories/brewtime/
 
-<hr />
-
-h2. rails_app_composer boilerplate follows
-
-Recipes:
-["auth", "extras", "frontend", "gems", "git", "init", "models", "readme", "setup", "testing"]
-
-Preferences:
-{:git=>true, :dev_webserver=>"thin", :prod_webserver=>"unicorn", :database=>"mongodb", :orm=>"mongoid", :templates=>"haml", :unit_test=>"rspec", :integration=>"capybara", :fixtures=>"factory_girl", :frontend=>"foundation", :email=>"none", :authentication=>"none", :authorization=>"none", :form_builder=>"simple_form", :ban_spiders=>true, :jsruntime=>true, :rvmrc=>true}
-
-h2. Ruby on Rails
-
-This application requires:
-
-* Ruby version 1.9.3
-* Rails version 3.2.8
-
-Learn more about "Installing Rails":http://railsapps.github.com/installing-rails.html.
-
-h2. Database
-
-This application uses MongoDB with the Mongoid ORM.
-
-h2. Development
-
-* Template Engine: Haml
-* Testing Framework: RSpec and Factory Girl
-* Front-end Framework: Zurb Foundation
-* Form Builder: SimpleForm
-* Authentication: None
-* Authorization: None
-
-
-
