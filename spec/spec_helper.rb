@@ -37,6 +37,9 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"  
+    
+    # mix in :build method & friends from FactoryGirl
+    config.include FactoryGirl::Syntax::Methods
 
     require 'database_cleaner'
     config.before(:suite) do
@@ -53,5 +56,5 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
+  FactoryGirl.reload
 end

@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :step do
-    name "Primary"
-    start ""
-    min_length ""
-    max_length ""
-    actual_length ""
+    brew
+    sequence(:name) {|n| "Step ##{n}"}
+    start { 14.days.ago }
+    min_length 7
+    max_length 14
+    actual_length nil
   end
 end
