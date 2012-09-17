@@ -11,7 +11,7 @@ The visualization is drawn using SVG, which means it will display crisply on hig
 Display a concise list of currently fermenting brews and their current progress through the fermentation process to a homebrewer. 
 
 [![SVG Visualization](http://mattdb.com/images/brewtime/datavis-1-cropped.png)](http://mattdb.com/images/brewtime/datavis-1.png)
-(Visualization trimmed, [click for full size](http://mattdb.com/images/brewtime/datavis-1.png))
+(Visualization screenshot trimmed, [click for full size](http://mattdb.com/images/brewtime/datavis-1.png))
 
 Each brew has it's current step displayed, with the minimum time expected shaded a dark blue, and the maximum time expected displayed in a lighter shade. "Now" is displayed with a vertical red line.
 
@@ -38,3 +38,16 @@ It's likely many of the things on this list won't actually be done (or at least,
 * Actual forms to edit/update models
 * Display multi-step fermentations (currently the visualization code cheats quite a bit and assumes the first step defined in the json is the "current" step)
 * implement scrolling and/or "overview/detail" views to allow for cases with very large date ranges (bulk aging, perhaps)
+
+## Running your own copy
+
+Beyond the normal Rails app setup process, you'll need MongoDB. Mongo was used because of the self-documenting nature of the fields, but we're not really using any special features.
+
+Once you get set up, you'll want to make a few brews, with at least one step. You can use the FactoryGirl factory for your convenience and edit to your liking. For example:
+
+    brew = FactoryGirl.create(:brew_with_steps)
+    brew.name = "IIPA"
+    s = brew.steps.first
+    s.name = "Primary"
+    s.max_length = 21      # integer is length in days
+    brew.save
