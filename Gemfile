@@ -19,6 +19,7 @@ gem "haml", "~> 3.1.7"
 gem "simple_form"
 gem "rabl", "~> 0.7.2"
 gem "json_spec", "~> 1.0.3"
+gem 'json'
 
 gem "validates_timeliness"
 

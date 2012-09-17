@@ -8,6 +8,9 @@
     = f.label :brewed
     = f.text_field :brewed, :as => :datetime, :class => :datepicker
     = f.error :brewed, :class => :error
+    
+    = f.fields_for :steps do |builder|
+      = render 'steps/step_fields', :f => builder
 
   .form-actions
     = f.button :submit

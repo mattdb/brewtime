@@ -1,0 +1,29 @@
+$basic_fill_fuzzy: rgb(173, 216, 230)
+$basic_fill_known: darken($basic_fill_fuzzy, 40%)
+
+.brewchart
+  // border: 1px solid red
+  .laneText
+    font-size: 0.7em
+    color: lightgray
+    font-family: Helvetica, sans-serif
+  .todayLine
+    stroke: red
+    stroke-width: 1.5
+  .axis
+    text
+      font-size: 0.6em
+      font-family: Helvetica, sans-serif
+    line, path
+      stroke: black
+  .month text
+    text-anchor: start
+
+  .stepRect
+    fill: $basic_fill_fuzzy
+    &.soonerRect
+      fill: $basic_fill_known
+  .stepLabel
+    font-size: 0.7em
+    font-family: Helvetica, sans-serif
+    fill: white
